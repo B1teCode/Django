@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body {
+				height: 100vh;
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.slider {
+				width: 768px;
+				aspect-ratio: 16 / 9;
+				border: 2px solid black;
+				position: relative;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+			.slide {
+				width: 100%;
+				position: absolute;
+				inset: 0;
+				height: 100%;
+				z-index: -100;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="slider">
+			<img
+				src="https://cdn.discordapp.com/attachments/1026208507080478722/1079408963445076018/priroda.jpg"
+				alt=""
+				class="slide"
+			/>
+			<img
+				src="https://cdn.discordapp.com/attachments/1026208507080478722/1079408963730284594/priroda2.jpg"
+				alt=""
+				class="slide"
+			/>
+			<button onClick="nextSlide(-1)"><</button>
+			<button onClick="nextSlide(1)">></button>
+		</div>
+		<script>
+			let slides = document.querySelectorAll(".slide");
+			let slideIndex = 0;
+			function nextSlide(iter) {
+				slideIndex = slideIndex + iter;
+
+				if (slideIndex === 0) {
+					slideIndex = slides.length;
+				} else if (slideIndex >= slides.length) {
+					slideIndex = 0;
+				}
+				slides.forEach((elem) => {
+					elem.style.display = "none";
+				});
+				slides[slideIndex].style.display = "block";
+			}
+		</script>
+	</body>
+</html>
