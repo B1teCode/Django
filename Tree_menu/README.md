@@ -1,3 +1,3 @@
 admin:
-  login: menu
-  psw: 121213
+  1. login: menu
+  2. psw: 121213
